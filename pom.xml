@@ -13,6 +13,43 @@
             <url>http://www.emn.fr/z-info/choco-solver/mvn/repository/</url>
         </repository>
     </repositories>
+
+    <build>
+        <plugins>
+            <!--plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>main.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+
+            </plugin-->
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <finalName>CrossRegex</finalName>
+                    <archive>
+
+                        <manifest>
+                            <mainClass>main.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>choco</groupId>
@@ -32,5 +69,5 @@
         </dependency>
 
     </dependencies>
-    
+
 </project>
